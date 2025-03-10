@@ -2,12 +2,12 @@ import { Song } from "@/types";
 import usePlayer from "./usePlayer";
 import useAuthModal from "./useAuthModal";
 import { useUser } from "./useUser";
-// import useSubscribeModal from "./useSubscribeModal";
+import useSubscribeModal from "./useSubscribeModal";
 
 
 const useOnPlay = (songs: Song[])=>{
   const player = usePlayer();
-  // const subscribeModal = useSubscribeModal();
+  const subscribeModal = useSubscribeModal();
   const authModal = useAuthModal();
   const {user, subscription} = useUser();
 
@@ -17,7 +17,7 @@ const useOnPlay = (songs: Song[])=>{
     }
 
     if(!subscription){
-      // return subscribeModal.onOpen();
+      return subscribeModal.onOpen();
     }
 
     player.setId(id);
